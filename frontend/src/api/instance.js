@@ -5,9 +5,6 @@ import { setToken } from '../store/reducers/userSlice'
 
 const MAIN_API_URL = process.env.REACT_APP_MAIN_URL
 
-console.log(MAIN_API_URL);
-
-
 export const instance = axios.create({
     baseURL: MAIN_API_URL,
     headers: {

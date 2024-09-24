@@ -6,14 +6,10 @@ const apiRoutes = require('../../backend/routers/routers');
 
 const { DB_USERNAME, DB_PASSWORD, DB_NAME } = process.env
 
-console.log('DB_USERNAME:', DB_USERNAME);
-console.log('DB_PASSWORD:', DB_PASSWORD);
-console.log('DB_NAME:', DB_NAME);
-
 const app = express()
 
 app.use(express.json())
-app.use('/netlify/functions/handle', apiRoutes);
+app.use('/.netlify/functions/handler/', apiRoutes);
 
 const publicPath = path.join(__dirname, '..', 'frontend', 'build') 
 app.use(express.static(publicPath));
@@ -42,4 +38,4 @@ async function connectToDB() {
 
 connectToDB()
 
-module.exports.handle = serverless(app)
+module.exports.handler = serverless(app)
