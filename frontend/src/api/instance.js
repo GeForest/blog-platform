@@ -3,8 +3,13 @@ import { useDispatch } from 'react-redux'
 import { openModal } from '../store/reducers/authModalSlice'
 import { setToken } from '../store/reducers/userSlice'
 
+const MAIN_API_URL = process.env.REACT_APP_URL
+
+console.log(MAIN_API_URL);
+
+
 export const instance = axios.create({
-    baseURL: process.env.REACT_APP_MAIN_URL,
+    baseURL: MAIN_API_URL,
     headers: {
         accept: 'application/json'
     }
