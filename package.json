@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express": "^4.21.0",
+    "mongoose": "^8.6.3",
+    "serverless-http": "^3.2.0"
+  }
+}

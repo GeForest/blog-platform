@@ -1,0 +1,14 @@
+[build]
+  base = ""
+  command = "cd frontend && npm install && npm run build"
+  publish = "frontend/build"
+  functions = "netlify/functions"
+
+[[plugins]]
+package = "@netlify/plugin-functions-install-core"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
