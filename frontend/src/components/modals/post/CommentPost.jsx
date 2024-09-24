@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback  } from 'react'
 import { useSelector } from 'react-redux';
 import { Box } from '@mui/material'
 
@@ -14,13 +14,13 @@ export default function CommentPost() {
     const [maxHeight, setMaxHeight] = useState()
     const [addCommentHeight, setAddCommentHeight] = useState(108)
     
-    const calculateMaxHeight = () => {
+    const calculateMaxHeight = useCallback(() => {
         if (refPost.current) {
             const postHeight = refPost.current.clientHeight;
             const availableHeight = postHeight - addCommentHeight
             setMaxHeight(availableHeight > 0 ? `${availableHeight}px` : '0px')
         }
-    };
+    }, [addCommentHeight])
 
     useEffect(() => {
         calculateMaxHeight();
@@ -29,7 +29,7 @@ export default function CommentPost() {
         return () => {
             window.removeEventListener('resize', calculateMaxHeight);
         };
-    }, [addCommentHeight]);
+    }, [calculateMaxHeight])
 
 
     if(type !== 'comment') return
