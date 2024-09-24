@@ -4,6 +4,8 @@ const serverless = require('serverless-http')
 const path = require('path')
 const apiRoutes = require('../../backend/routers/routers');
 
+const DB_URL = process.env.DB_URL
+
 const app = express()
 
 app.use(express.json())
@@ -27,7 +29,7 @@ app.use((err, req, res, next) => {
 
 async function connectToDB() {
     try {
-        await mongoose.connect(process.env.DB_URL)
+        await mongoose.connect(DB_URL)
         console.log('Connected to DB')
     } catch (err) {
         console.error('Failed to connect to DB', err)
