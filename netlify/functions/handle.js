@@ -12,7 +12,6 @@ if (!process.env.DB_URL) {
 const app = express()
 
 app.use(express.json())
-app.use(cors())
 app.use('/netlify/functions/handle', apiRoutes);
 
 const publicPath = path.join(__dirname, '..', 'frontend', 'build') 
