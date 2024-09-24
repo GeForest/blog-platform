@@ -13,7 +13,7 @@ module.exports = function signIn(User) {
       const token = jwt.sign(
         {userId: user._id},
         process.env.JWT_SECRET,
-        {expiresIn: '10m'}
+        {expiresIn: '1h'}
       )
 
       res.json({ success: true, message: 'Вы вошли на аккаунт.', token })
