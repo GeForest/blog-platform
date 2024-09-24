@@ -1,0 +1,67 @@
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #636363;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #515151; 
+}
+
+/* Styles for Scrollbar */
+.simplebar-scrollbar:before {
+    background-color: #636363;
+}
+
+/* Styles for cssTransition */
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+/* Styles for MainPage */
+
+    /* Styles for Header */
+
+    .header__icon {
+        margin-top: 2.5px;
+    }
+
+    /* Styles for Content */
+
+    .content {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        color: #f4f4f4;
+    }
+
+    .iconLike {
+        width: 18px;
+    }
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
