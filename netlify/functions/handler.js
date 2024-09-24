@@ -4,8 +4,6 @@ const serverless = require('serverless-http')
 const path = require('path')
 const apiRoutes = require('../../backend/routers/routers');
 
-const { DB_USERNAME, DB_PASSWORD, DB_NAME } = process.env
-
 const app = express()
 
 app.use(express.json())
@@ -29,7 +27,7 @@ app.use((err, req, res, next) => {
 
 async function connectToDB() {
     try {
-        await mongoose.connect(`mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.6h3lvf3.mongodb.net/${DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`)
+        await mongoose.connect(process.env.DB_URL)
         console.log('Connected to DB')
     } catch (err) {
         console.error('Failed to connect to DB', err)
